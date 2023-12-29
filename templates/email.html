@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+	<style>
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family:"Calibri", sans-serif;
+}
+
+html{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    background-color: rgba(4, 4, 94, 0.259);
+}
+
+.form{
+    position: absolute;
+    left: 35%;
+    top: 20%;
+    background-color: white;
+    overflow-y: auto;
+    width: 30%;
+    height: 60%;
+    border: 1px solid black;
+    box-shadow: 7px 5px 6px rgba(207, 198, 198, 0.329);
+    border-radius: 20px;
+}
+
+.darkMode{
+    position: absolute;
+    left: 35%;
+    top: 20%;
+    background-color: black;
+    overflow-y: auto;
+    width: 30%;
+    height: 60%;
+    border: 1px solid black;
+    box-shadow: 7px 5px 6px rgba(207, 198, 198, 0.329);
+    border-radius: 20px;
+}
+
+.header{
+    padding: 4px;
+    text-align: center;
+    height: fit-content;
+    background-color: #6c13d1;
+    color: white;
+}
+
+.darkHeader{
+    padding: 4px;
+    text-align: center;
+    height: fit-content;
+    background-color: rgb(80, 77, 77);
+    color: white;
+}
+
+textarea, .btn{
+    position: relative;
+    left: 4%;
+    margin: 3px;
+}
+
+textarea{
+    overflow-y: auto;
+}
+
+.text{
+    height: 20px
+}
+
+.btn{
+    padding: 10px;
+    margin: 10px 0px 10px 0px;
+    font-size: 15px;
+    color: white;
+    background: #495159;
+    border: none;
+    border-radius: 5px;
+}
+
+.btn:hover{
+    background: #9c9c9c;
+}
+
+.textWords{
+    position: relative;
+    text-align: center;
+    height: auto;
+}
+
+.whiteTextWords{
+    position: relative;
+    text-align: center;
+    height: auto;
+    color:white;
+}
+
+.words{
+    position: relative;
+    text-align: center;
+    height: auto;
+}
+
+.whiteWords{
+    position: relative;
+    text-align: center;
+    height: auto;
+    color:white;
+}
+
+.bg{
+    position: relative;
+    text-align: center;
+    height: auto;
+    background-color: white;
+    width: fit-content;
+}
+
+.Positive {
+    width: 80%;
+    padding: 20px;
+    border: 1px solid #B0C4DE;
+    background: green;
+    border-radius: 10px 10px 10px 10px;
+    margin: 0 auto;
+    display: block;
+}
+
+.Negative {
+    width: 80%;
+    padding: 20px;
+    border: 1px solid #B0C4DE;
+    background: red;
+    border-radius: 10px 10px 10px 10px;
+    margin: 0 auto;
+    display: block;
+}
+
+.footer{
+    position: relative;
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+}
+
+.green{
+    color: green;
+}
+
+.red{
+    color: red;
+}
+
+textarea{
+    resize: none;
+    width: 90%;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {display:none;}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+.slider.round {
+    border-radius: 34px;
+    }
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.longText{
+    height: 60px;
+}
+
+.tweet{
+    height: 100px;
+}
+
+a{
+    color: #495159;
+}
+
+a:hover{
+    color: #9c9c9c;
+}
+
+.black{
+    color: black;
+}
+
+.white{
+    color: white;
+}
+	</style>
+</head>
+<body>
+<div id="myFirstDIV" class="form">
+	<div id="header" class="header">
+		<h2>Send e-mail to web-admin:</h2>
+	</div>
+	<script>
+		function submitForm(form) {
+			window.open("mailto:leej8693@uwec.edu?subject=Tweet%20Analysis%20Feedback&body=Name:%20" + form.name.value + 
+						"%0d%0aTweet:%20" + form.tweet.value + 
+						"%0d%0aFeedback:%20" + form.feedback.value);
+			return false; /* cancel submit or else page reloads */
+		}
+	</script>
+	<form class="content" onsubmit="return submitForm(this)">
+		<div id="mySecondDIV" class="words">
+			<h4>Your Name:</h4>
+		</div>
+		<textarea class="text" type="text" name="name" rows="2" cols="60" placeholder="Enter your name..."></textarea>
+
+		<div id="myThirdDIV" class="words">
+			<h4>Your Email:</h4>
+		</div>
+		<textarea class="text" type="text" name="email" rows="2" cols="60" placeholder="Enter your email address..."></textarea>
+
+		<div id="myFourthDIV" class="words">
+			<h4>Your Tweet:</h4>
+		</div>
+		<textarea class="longText" type="text" name="tweet" rows="2" cols="60" placeholder="Enter the tweet you analyzed..."></textarea>
+
+		<div id="myFifthDIV" class="words">
+			<h4>Your Feedback:</h4>
+		</div>
+		<textarea class="longText" type="text" name="feedback" rows="5" cols="60" placeholder="Enter your feedback..."></textarea>
+		<button class="btn" type="submit">Submit</button> 
+
+        <div class="footer">
+            <a href="{{url_for('predict_sentiment')}}">Return To Main!</a>
+        </div> 
+	</form>
+</div>
+
+<h2 id="toggle" class="black">Toggle Dark Mode</h2>
+
+<label class="switch" id="theme-switcher">
+	<input type="checkbox">
+	<div class="slider round"></div>
+</label>
+
+<script>
+	//ads an event listener to see if dark mode toggle switch has been used
+	document.addEventListener('DOMContentLoaded', function () {
+	var checkbox = document.querySelector('input[type="checkbox"]');
+	var darkMode = 0; //to track whether dark mode has been toggled
+
+	checkbox.addEventListener('change', function () {
+		if (checkbox.checked) { //changes from bright mode to dark mode
+			darkMode = 1;//updates toggle
+			localStorage.setItem("darckCheck", darkMode);//saves it to local storage
+
+			const black = document.getElementById("myFirstDIV");//changes background DIV
+			black.classList.remove("form");
+			black.classList.add("darkMode");
+
+			const white = document.getElementById("mySecondDIV");//changes word DIVs
+			white.classList.remove("words");
+			white.classList.add("whiteWords");
+
+			const words = document.getElementById("myThirdDIV");
+			words.classList.remove("words");
+			words.classList.add("whiteWords");
+
+			const fourth = document.getElementById("myFourthDIV");
+			fourth.classList.remove("words");
+			fourth.classList.add("whiteWords");
+
+			const fifth = document.getElementById("myFifthDIV");
+			fifth.classList.remove("words");
+			fifth.classList.add("whiteWords");
+
+            const header = document.getElementById("header");
+            header.classList.remove("header");
+            header.classList.add("darkHeader");
+
+            const toggle = document.getElementById("toggle");
+            toggle.classList.remove("black");
+            toggle.classList.add("white");
+
+            document.body.style.background = 'rgb(4, 4, 94)';
+
+			console.log('Checked');
+		} else { //changes from dark mode ot bright mode
+			darkMode = 0;
+			localStorage.setItem("darckCheck", darkMode);
+
+			const White = document.getElementById("myFirstDIV");
+			White.classList.remove("darkMode");
+			White.classList.add("form");
+
+			const black = document.getElementById("mySecondDIV");
+			black.classList.remove("whiteWords");
+			black.classList.add("words");
+
+			const words = document.getElementById("myThirdDIV");
+			words.classList.remove("whiteWords");
+			words.classList.add("words");
+
+			const fourth = document.getElementById("myFourthDIV");
+			fourth.classList.remove("whiteWords");
+			fourth.classList.add("words");
+
+			const fifth = document.getElementById("myFifthDIV");
+			fifth.classList.remove("whiteWords");
+			fifth.classList.add("words");
+
+            const header = document.getElementById("header");
+            header.classList.remove("darkHeader");
+            header.classList.add("header");
+
+            const toggle = document.getElementById("toggle");
+            toggle.classList.remove("white");
+            toggle.classList.add("black");
+
+            document.body.style.background = 'rgb(4, 4, 94, 0.259)';
+
+			console.log('Not checked');
+			}
+		});
+	});
+
+	window.onload = function() {//if dark mode is toggled on this will turn it on when the page refreshes
+		var darkCheck = localStorage.getItem("darckCheck");
+		if(darkCheck == 1){
+			const push = document.getElementById("theme-switcher");
+			push.click();
+		}
+	};
+</script>
+</body>
+</html>

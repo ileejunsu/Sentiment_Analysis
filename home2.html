@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="Style1.css">
+
+    <title>Document</title>
+
+    <style>
+        *{
+    margin: 0px;
+    padding: 0px;
+    font-family:"Calibri", sans-serif;
+}
+
+html{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    background-image: url("Blue.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.form{
+    position: absolute;
+    left: 37.5%;
+    bottom: 25%;
+    background-color: white;
+    overflow: hidden;
+    width: 25%;
+    height: 60%;
+    border: 1px solid black;
+    box-shadow: 7px 5px 6px rgba(207, 198, 198, 0.329);
+    border-radius: 20px;
+}
+
+.header{
+    text-align: center;
+    height: 10%;
+    background-color: #e2725b;
+}
+
+textarea, .btn, .bar{
+    position: relative;
+    left: 4%;
+    margin: 3px;
+}
+
+.text{
+    top: 4px;
+    width: 90%;
+    height: 100px
+}
+
+.btn{
+    padding: 10px;
+    margin: 10px 0px 10px 0px;
+    font-size: 15px;
+    color: white;
+    background: #495159;
+    border: none;
+    border-radius: 5px;
+}
+
+.btn:hover{
+    background: #9c9c9c;
+}
+
+.positivity{
+    position: relative;
+    text-align: center;
+    height: auto;
+}
+
+.bar {
+    width: 80%;
+    padding: 20px;
+    border: 1px solid #B0C4DE;
+    background: white;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.footer{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+}
+
+textarea{
+    resize: none;
+}
+    </style>
+</head>
+<body>
+    <div class="form">
+        <div class="header">
+            <h2>Welcome to Sentiment Analysis!</h2>
+        </div>
+		{% if error %}
+		<div class="error">{{ error }}</div>
+		{% endif %}
+        
+		<form method="POST" action="/">
+			<textarea id="text_to_predict" name="text_to_predict" class="text">Enter Tweets here seperated by Enter</textarea>
+			<button class="btn" type="submit">Submit</button>
+		</form>
+		
+		{% for i in range(texts|length) %}
+		<div>{{ texts[i] }} - {{ sentiments[i] }}</div>
+		{% endfor %}
+		
+		<div class="positivity">
+            <h2>Positivity</h2>
+            <div class="bar"></div>
+        </div>
+        <div class="footer">
+            <a href="{{ url_for('email') }}">Leave Feedback!</a>
+        </div>  
+    </div>
+
+</body>
+</html>
